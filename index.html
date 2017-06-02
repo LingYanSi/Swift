@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <style media="screen">
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            .scroll::-webkit-scrollbar {
+                width: 0;
+                /*height: 4px;*/
+                background: rgba(0, 0, 0, 0);
+            }
+            .scroll::-webkit-scrollbar-thumb {
+                background: rgba(0, 0, 0, 0);
+            }
+
+            button {
+                line-height: 2;
+                border: 1px solid #000;
+                outline: none;
+                background: inherit;
+                border-radius: 4px;
+                cursor: pointer;
+                padding: .5em 1em;
+            }
+
+            .active {
+                background: red;
+            }
+
+            .complete {
+                opacity: .5;
+            }
+
+            .complete .complete-btn::before {
+                content: "";
+                display: block;
+                position: absolute;
+                height: .5em;
+                width:  .5em;
+                background: red;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 100%;
+            }
+
+            .complete-btn {
+                position: relative;
+                width: 1.4em;
+                height: 1.4em;
+                padding: 0;
+                border-radius: 100%;
+                border: 1px solid #000;
+                outline: none;
+                background: inherit;
+            }
+
+            ul {
+                list-style: none;
+                padding-left: 0;
+            }
+
+            .modal-item.enter .layer {
+                background: rgba(0, 0, 0, .6);
+            }
+
+            .modal-item.leave .layer {
+                background: rgba(0, 0, 0, 0);
+            }
+
+            .content {
+                transition: .3s;
+                transform: translate3d(-50%, -50%, 0) scale3d(2, 2, 1);
+            }
+
+            .enter .content {
+                transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+            }
+
+            .leave .content {
+                transform: translate3d(-50%, 100vh, 0) scale3d(1, 1, 1);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="todo"></div>
+        <div id="app"></div>
+        <script src="./dist/swift.js" charset="utf-8"></script>
+        <script src="./dist/todo.js" charset="utf-8"></script>
+    </body>
+</html>
